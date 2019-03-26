@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CDCData">
+  <DataContextMoniker Name="/CDCDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6a96d946-28c8-4710-83ba-37441c1a2a53" isExpanded="false" absoluteBounds="0.75, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/POHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5488349-b2fc-46ee-af40-32ef373c1322" absoluteBounds="0.765, 3.71, 1.9700000000000002, 3.65875244140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c12a6d7d-7ef6-4936-ae9e-e701c7035457" isExpanded="false" absoluteBounds="3.375, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/PODetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="782de0b2-2d45-474e-a9ca-b4dbe44a1a49" absoluteBounds="3.39, 3.71, 1.9700000000000002, 4.15179443359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bc37224f-37af-4b48-a02b-748f9b2a1132" isExpanded="false" absoluteBounds="0.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/RequisitionDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="55b8ee58-3314-47e3-8dd6-8ad0315fb2a5" absoluteBounds="0.76500000000000012, 2.21, 1.9700000000000002, 1.8509318033854165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27168f42-0262-4b57-a573-bb273b068657" isExpanded="false" absoluteBounds="0.5, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/RequisitionHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="37c77e44-69ec-4cb1-9e34-ab0ced22a9cb" absoluteBounds="0.51499999999999968, 1.335, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 3.475); (3.375 : 3.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/CDCDataDataContext/POHeader/POHeader_PODetail" />
+      <nodes>
+        <classShapeMoniker Id="6a96d946-28c8-4710-83ba-37441c1a2a53" />
+        <classShapeMoniker Id="c12a6d7d-7ef6-4936-ae9e-e701c7035457" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="46802466-5d56-4b6b-bf29-48c84ead623b" isExpanded="false" absoluteBounds="3, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/ProductMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4faba9a4-aa78-41bb-b733-ed974189335b" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 6.945699055989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed60fb87-c64e-4bb0-9008-ea682783d62a" isExpanded="false" absoluteBounds="3.375, 4, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/PODist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="edc866d8-0be8-4661-a7ee-59f29c4df2ad" absoluteBounds="3.39, 4.46, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c88652b-d7ab-42a6-9a27-b30a8df64952" isExpanded="false" absoluteBounds="3, 1.125, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/ProductMasterDist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5311a93a-7c6a-471d-b01d-a8d99eb09ab0" absoluteBounds="3.0149999999999997, 1.585, 1.9700000000000002, 3.16571044921875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5afb4fc2-fbce-40c3-88a0-53aa053c40e7" isExpanded="false" absoluteBounds="5.625, 2.75, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwStoreOrds2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df038a56-4c21-4bd5-b466-55fd2451c213" absoluteBounds="5.6400000000000006, 3.21, 1.9700000000000002, 2.8370157877604165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="52f8ea41-87f9-4f11-b538-ea0288c671c2" isExpanded="false" absoluteBounds="5.625, 3.5, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwStoreOrdDtls2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2e43aad-a767-4acf-bd30-297004ec45c8" absoluteBounds="5.64, 3.96, 1.9700000000000002, 3.001363118489583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ba2dda8-386c-44e3-a4a7-4b39eceb1156" isExpanded="false" absoluteBounds="5.5, 1.25, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwStorePOs2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3dc823c-3219-49c6-9dea-24f400cb46c2" absoluteBounds="5.515, 1.71, 1.9700000000000002, 5.3022257486979161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cd431f0-b90b-4248-810b-0958c351b4bb" isExpanded="false" absoluteBounds="1.125, 4.875, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwPO2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d205b419-4a7a-4df7-b1e4-356cb7450715" absoluteBounds="1.1400000000000001, 5.335, 1.9700000000000002, 5.13787841796875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="617dbb16-3826-49de-b510-091c204ffcb9" isExpanded="false" absoluteBounds="3.625, 5, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwPODtl2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ad0556ab-30e3-4d87-b5f7-e6eeacdc5454" absoluteBounds="3.64, 5.46, 1.9700000000000002, 3.823099772135417" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eedf8764-1b08-44cb-b921-04e3ef9cddf9" isExpanded="false" absoluteBounds="5.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/CDCDataDataContext/vwNewItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03065b77-47cd-4534-90fd-3de2e06415c4" absoluteBounds="5.515, 0.96, 1.9700000000000002, 3.494405110677083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

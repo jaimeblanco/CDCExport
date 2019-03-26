@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="HPB_db" Class="CDCDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FERRET;Initial Catalog=HPB_db;Integrated Security=True" SettingsObjectName="CDCData.My.MySettings" SettingsPropertyName="HPB_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.OrderHeader" Member="POHeaders">
+    <Type Name="POHeader">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="POType" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="BuyerID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TermsCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CancelDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Printed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SendPO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SpecInstructions" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Complete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateComplete" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="SkeletonCreatedFrom" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="CreatedFromRequisition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ShipToName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="POHeader_PODetail" Member="PODetails" ThisKey="PONumber" OtherKey="PONumber" Type="PODetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderDetail" Member="PODetails">
+    <Type Name="PODetail">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="POLine" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="DistributionType" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitType" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ExtendedLineCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SchemeID" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="FileClaimAdjustment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="VoucherNo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="Complete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DateComplete" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="SpecialInstructions" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="RemovedFromReceiver" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QtyCounted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyPer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExtendedQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RowAddedFrom" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="RowAddedByUser" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="RowAddedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="POHeader_PODetail" Member="POHeader" ThisKey="PONumber" OtherKey="PONumber" Type="POHeader" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RequisitionDetail" Member="RequisitionDetails">
+    <Type Name="RequisitionDetail">
+      <Column Name="RequisitionNo" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemRequestDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RequestedQtyToOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitType" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Approved" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ApprovedQtyToOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateApprovedDisapproved" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="PONumber" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RequisitionHeader" Member="RequisitionHeaders">
+    <Type Name="RequisitionHeader">
+      <Column Name="RequisitionNo" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="RequestBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="RequisitionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DateApprovedDisapproved" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="PONumber" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="LastDateVoided" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastDateVoidedBy" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductMaster" Member="ProductMasters">
+    <Type Name="ProductMaster">
+      <Column Name="ItemCode" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemAlias" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ValidCost" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="CostBasis" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceMethod" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowRegisterPricing" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="AltPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SectionCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionCategory" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SchemeID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="ISBN" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="PurchaseFromVendorID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LastPurchaseOrder" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="LastVoucherNumber" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LastInvoiceNo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ReclassFromItemCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Reorderable" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="InternetItem" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="InternetMinQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InternetMaxQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MfgSuggestedPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UpdateQOH" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowRegisterTitle" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="KeyWords" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserChar15" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="UserChar30" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UserDate1" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserDate2" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserInt1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserInt2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserNum1" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
+      <Column Name="UserNum2" Type="System.Decimal" DbType="Decimal(12,0) NOT NULL" CanBeNull="false" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderHeaderDist" Member="PODists">
+    <Type Name="PODist">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WMSType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductMasterDist" Member="ProductMasterDists">
+    <Type Name="ProductMasterDist">
+      <Column Name="ItemCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="VendorItemNo" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="ASIN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="SchemeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="LastChangeBy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="LastChangeDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CalcCost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="CalcDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CalcOveride" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CalcDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ReorderableItem" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="RetailText" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="UPC" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitsPerCase" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TTBProdType" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwStoreOrds2Export" Member="vwStoreOrds2Exports">
+    <Type Name="vwStoreOrds2Export">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RequisitionNo" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OrderType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DateApprovedDisapproved" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="GPCustomer" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="SiteID" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MailToAddress1" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress2" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToCity" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MailToState" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToZip" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwStoreOrdDtls2Export" Member="vwStoreOrdDtls2Exports">
+    <Type Name="vwStoreOrdDtls2Export">
+      <Column Name="RequisitionNo" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SectionCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionCategory" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MfgSuggestedPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Markdown" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SchemeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TTBProdType" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="GPItemCode" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="LineID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwStorePOs2Export" Member="vwStorePOs2Exports">
+    <Type Name="vwStorePOs2Export">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="BuyerID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TermsCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ShipToName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="WMSType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Abbreviation" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress1" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress2" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress3" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToCountry" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StateCode" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VenName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="VenAdd1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="VenAdd2" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="VenCity" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="VenState" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="VenZip" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VenTermsCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="OrderType" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TermsDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwPO2Export" Member="vwPO2Exports">
+    <Type Name="vwPO2Export">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LocationNo" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="BuyerID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PODate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="OrderAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ShipToName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShipToAddress3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="WMSType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Abbreviation" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress1" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress2" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToAddress3" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MailToCountry" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="StateCode" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VenName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="VenAdd1" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="VenAdd2" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="VenCity" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="VenState" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="VenZip" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="VenTerms" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderType" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="TermsDays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwPODtl2Export" Member="vwPODtl2Exports">
+    <Type Name="vwPODtl2Export">
+      <Column Name="PONumber" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="POLine" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UOM" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductType" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SectionCode" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DistributionCategory" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MfgSuggestedPrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Markdown" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ExtendedLineCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TTBProdType" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="SchemeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="GPItemCode" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwNewItems" Member="vwNewItems">
+    <Type Name="vwNewItem">
+      <Column Name="ItemCode" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="Section" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DistCat" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ISBN" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="MSRP" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Markdown" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SchemeID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TTBProdType" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="UPC" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitsPer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HPBProdType" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="WhsleText" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="MarkDownPrcLv" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DS_ProdMstUpdateStatus" Method="DS_ProdMstUpdateStatus">
+    <Parameter Name="ItemCode" Parameter="itemCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DS_OrderHdrUpdateStatus" Method="DS_OrderHdrUpdateStatus">
+    <Parameter Name="PONumber" Parameter="pONumber" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WMS_CDC_DropShipments" Method="WMS_CDC_DropShipments">
+    <Parameter Name="xml" Type="System.String" DbType="NText" />
+    <Parameter Name="File" Parameter="file" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WMS_ILS_ShipmentRecords" Method="WMS_ILS_ShipmentRecords">
+    <Parameter Name="xml" Type="System.String" DbType="NText" />
+    <Parameter Name="File" Parameter="file" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WMS_ILS_UpdShipRecs" Method="WMS_ILS_UpdShipRecs">
+    <Parameter Name="procDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

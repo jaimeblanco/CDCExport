@@ -1,0 +1,12 @@
+C:\Projects\CDCExport\CDCData\bin\Debug\CDCData.dll.config
+C:\Projects\CDCExport\CDCData\bin\Debug\CDCData.dll
+C:\Projects\CDCExport\CDCData\bin\Debug\CDCData.pdb
+C:\Projects\CDCExport\CDCData\bin\Debug\CDCData.xml
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.Resources.resources
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbproj.GenerateResource.Cache
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.dll
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.xml
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.pdb
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbprojResolveAssemblyReference.cache
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbprojAssemblyReference.cache
+C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbproj.CoreCompileInputs.cache

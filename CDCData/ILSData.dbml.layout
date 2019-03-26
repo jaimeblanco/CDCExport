@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.125" name="ILSData">
+  <DataContextMoniker Name="/ILSDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="7515a0dd-9339-4204-aded-dd1395f71a6c" isExpanded="false" absoluteBounds="5.5, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/ILSDataDataContext/vwItemBalance2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="52834e65-f0a3-4c67-aa20-bf8e6dc17f73" absoluteBounds="5.515, 1.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbea1007-60db-4871-8ba5-4ffa55ff84bc" isExpanded="false" absoluteBounds="5.5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/ILSDataDataContext/vwWEBItemSummary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e504754e-9baf-4c04-a3dc-bd0133cad2e4" absoluteBounds="5.515, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c3282b0-ebb0-4ade-bc31-24d67f25527a" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/ILSDataDataContext/vwReceipts2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="540ee36c-a701-4ceb-bee1-4bf9f0c220c4" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f321080e-6f45-43e3-af86-c33eb1c41ed5" isExpanded="false" absoluteBounds="0.5, 1.375, 2, 0.45">
+      <DataClassMoniker Name="/ILSDataDataContext/vwReceiptDtls2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09d93328-5cde-42a2-8d76-1318fac78082" absoluteBounds="0.51500000000000012, 1.835, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c38fde2e-9227-494d-912c-63d482f4d025" isExpanded="false" absoluteBounds="5.625, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/ILSDataDataContext/vwWEBItemsDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f40c60e-4401-4687-be61-554711f53b28" absoluteBounds="5.64, 2.835, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b781704a-75b5-4ac7-96cb-506112bccfc9" absoluteBounds="0.625, 2.125, 2, 6.7707340494791657">
+      <DataClassMoniker Name="/ILSDataDataContext/vwHPBOrders2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2cfd3e2-9fb6-454a-ba41-78b0a39605b7" absoluteBounds="0.64, 2.585, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ebe72275-4027-43df-9680-7fa8ead370b2" absoluteBounds="3, 2.375, 2, 4.2708154296875">
+      <DataClassMoniker Name="/ILSDataDataContext/vwHPBOrderDtls2Export" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c82fd8b0-65e5-4a36-98f8-0304da0fedfc" absoluteBounds="3.015, 2.835, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

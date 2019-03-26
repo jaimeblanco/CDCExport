@@ -1,0 +1,10 @@
+C:\Projects\CDCExport\CDCData\bin\Release\CDCData.dll.config
+C:\Projects\CDCExport\CDCData\bin\Release\CDCData.dll
+C:\Projects\CDCExport\CDCData\bin\Release\CDCData.pdb
+C:\Projects\CDCExport\CDCData\bin\Release\CDCData.xml
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.Resources.resources
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.vbproj.GenerateResource.Cache
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.dll
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.xml
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.pdb
+C:\Projects\CDCExport\CDCData\obj\Release\CDCData.vbprojResolveAssemblyReference.cache

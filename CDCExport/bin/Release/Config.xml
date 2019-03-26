@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Config Client="HPB" Version="1.1.1">
+  <DSN>GPTest2</DSN>
+  <ILSDSN>ILSTest2</ILSDSN>
+  <UserName>HPB\kptaszynski</UserName> 
+  <Password></Password>
+  <Catalog>HPB_db</Catalog>
+  <ILSCatalog>ILS</ILSCatalog>
+  <!--ConnectionString>Data Source=CHIPMUNK;Initial Catalog=HPB_TEST;Application Name=CDCExport;Integrated Security=True</ConnectionString>-->
+  <ConnectionString>Data Source=FERRET;Initial Catalog=HPB_db;Application Name=CDCExport;Integrated Security=True</ConnectionString>
+  <ILSConnectionString>Data Source=WMSSQLCLUSTER;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>
+  <ProcessingDocType>Order</ProcessingDocType>
+  <CompletedBatchID>FINISHED</CompletedBatchID>
+  <AvailableProcessHoldID>ILS</AvailableProcessHoldID>
+  <GoLiveDate>2010-03-10T00:00:00</GoLiveDate>
+  <ExportDest>GP</ExportDest>
+  <ILSExportDest>ILS</ILSExportDest>
+  <ExportType Type="ITEM">
+    <MaxRecordsPerXml>150</MaxRecordsPerXml>
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.imxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_item.xml</errOutputFile>
+    <GPExportFileExt>.imupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.imxml.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+	<ExportType Type="SOP">
+		<xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.shxml.xml</xmlOutputFile>
+		<errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_shp.xml</errOutputFile>
+    <GPExportFileExt>.orupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.shupl.xml</ILSExportFileExt>
+		<errEmailAddress></errEmailAddress>
+  </ExportType>
+	<ExportType Type="POP">
+		<xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.rcxml.xml</xmlOutputFile>
+		<errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_rc.xml</errOutputFile>
+    <GPExportFileExt>.poupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.rcupl.xml</ILSExportFileExt>
+		<errEmailAddress></errEmailAddress>
+  </ExportType>
+  <StoreOrderPO>
+    <StoreOrderPO Type ="HPBReorder">
+      <POHdr>HPR</POHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type ="DropShip">
+      <POHdr>DS</POHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type ="Supplies">
+      <POHdr></POHdr>
+      <SiteID></SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type="TTBReorder">
+      <POHdr></POHdr>
+      <SiteID></SiteID>
+    </StoreOrderPO>
+  </StoreOrderPO>
+  <StoreOrder>
+    <StoreOrder Type="HPBReorder">
+      <SOHdr>HRO</SOHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="TTBReorder">
+      <SOHdr>TRO</SOHdr>
+      <SiteID>TTB</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="Supplies">
+      <SOHdr>SUP</SOHdr>
+      <SiteID>SUP</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="DropShip">
+      <SOHdr></SOHdr>
+      <SiteID></SiteID>
+    </StoreOrder>
+  </StoreOrder>
+</Config>

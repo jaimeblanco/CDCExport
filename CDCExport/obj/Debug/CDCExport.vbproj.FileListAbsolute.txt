@@ -1,0 +1,17 @@
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.Resources.resources
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.vbproj.GenerateResource.Cache
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCExport.exe
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCExport.pdb
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCExport.xml
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.exe
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.xml
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.pdb
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCData.dll
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCData.pdb
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCData.xml
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.frmStartUp.resources
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCExport.exe.config
+C:\Projects\CDCExport\CDCExport\bin\Debug\CDCData.dll.config
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.vbprojAssemblyReference.cache
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.vbproj.CoreCompileInputs.cache
+C:\Projects\CDCExport\CDCExport\obj\Debug\CDCExport.vbproj.CopyComplete

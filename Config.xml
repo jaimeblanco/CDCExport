@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Config Client="HPB" Version="1.1.1">
+  <DSN>GPTest2</DSN>
+  <ILSDSN>ILSTest2</ILSDSN>
+  <HPBDSN>HPBTest2</HPBDSN>
+  <UserName>HPB\jblalock</UserName>
+  <Password></Password>
+  <Catalog>HPB_db</Catalog>
+  <!--Prod DB-->
+  <!--<ILSCatalog>ILS</ILSCatalog>-->
+  <!--Dev DB-->
+  <ILSCatalog>ILS</ILSCatalog>
+  <HPBCatalog>HPB_Logistics</HPBCatalog>
+  <!--Prod Conn Strings-->
+	<ConnectionString>Data Source=SEQUOIA;Initial Catalog=HPB_DB;Application Name=CDCExport;Integrated Security=True</ConnectionString>
+  <HPBConnectionString>Data Source=SILVERBELL;Initial Catalog=HPB_Logistics;Application Name=CDCExport;Integrated Security=True</HPBConnectionString>
+  <ILSConnectionString>Data Source=WMSSQLCLUSTER;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>
+  <!--Dev Conn Strings-->
+  <!--<ConnectionString>Data Source=FERRET;Initial Catalog=HPB_db;Application Name=CDCExport;Integrated Security=True</ConnectionString>-->
+  <!--<HPBConnectionString>Data Source=porcupine;Initial Catalog=HPB_Logistics;Application Name=CDCExport;Integrated Security=True</HPBConnectionString>-->
+  <!--<ILSConnectionString>Data Source=wmssqlcluster;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>-->
+  <ProcessingDocType>Order</ProcessingDocType>
+  <CompletedBatchID>FINISHED</CompletedBatchID>
+  <AvailableProcessHoldID>ILS</AvailableProcessHoldID>
+  <GoLiveDate>2010-04-29T00:00:00</GoLiveDate>
+  <ProcessShipXML>Y</ProcessShipXML>
+  <SplitTTBItems>Y</SplitTTBItems>
+  <!--****WEB Item files locations: 0=Both; 1=Local; 2=Olive-->
+  <WEBItemFileSaveLoc>0</WEBItemFileSaveLoc>
+  <!--Set WEB Items value to 0 (zero) to turn off....-->
+  <HourlyWEBItems>0</HourlyWEBItems>
+  <DailyWEBItems>0</DailyWEBItems>
+  <WeeklyWEBItems>0</WeeklyWEBItems>
+  <MaxStoreCnt>25</MaxStoreCnt>
+  <ExportDest>GP</ExportDest>
+  <ILSExportDest>ILS</ILSExportDest>
+  <ExportType Type="ITEMx">
+    <MaxRecordsPerXml>150</MaxRecordsPerXml>
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.imxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_item.xml</errOutputFile>
+    <GPExportFileExt>.imupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.imxml.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="ITEM2WEBx">
+    <MaxRecordsPerXml>4000</MaxRecordsPerXml>
+	<!--<xmlOutputFile>\\olive\TXBK\Import\.iwxml.xml</xmlOutputFile>-->
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.iwxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_itemweb.xml</errOutputFile>
+    <ILSExportFileExt>.iwxml.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="ITEMBALANCEx">
+    <MaxRecordsPerXml>150</MaxRecordsPerXml>
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.ibxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_itembal.xml</errOutputFile>
+    <ILSExportFileExt>.ibxml.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="SOP">
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.shxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_shp.xml</errOutputFile>
+    <GPExportFileExt>.orupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.shupl.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="POPx">
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.rcxml.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_rc.xml</errOutputFile>
+    <GPExportFileExt>.poupl.xml</GPExportFileExt>
+    <ILSExportFileExt>.rcupl.xml</ILSExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="EDIINVx">
+    <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.eiupl.xml</xmlOutputFile>
+    <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_ei.xml</errOutputFile>
+    <GPExportFileExt>.eiupl.xml</GPExportFileExt>
+    <errEmailAddress></errEmailAddress>
+  </ExportType>
+  <ExportType Type="WEBINVx">
+	<xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.wiupl.xml</xmlOutputFile>
+	<errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_wi.xml</errOutputFile>
+	<GPExportFileExt>.wiupl.xml</GPExportFileExt>
+	<errEmailAddress></errEmailAddress>
+   </ExportType>
+  <StoreOrderPO>
+    <StoreOrderPO Type="HPBReorder">
+      <POHdr>HPR</POHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type="DropShip">
+      <POHdr>DS</POHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type="Supplies">
+      <POHdr></POHdr>
+      <SiteID></SiteID>
+    </StoreOrderPO>
+    <StoreOrderPO Type="TTBReorder">
+      <POHdr></POHdr>
+      <SiteID></SiteID>
+    </StoreOrderPO>
+  </StoreOrderPO>
+  <StoreOrder>
+    <StoreOrder Type="HPBReorder">
+      <SOHdr>HRO</SOHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="TTBReorder">
+      <SOHdr>TRO</SOHdr>
+      <SiteID>TTB</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="Supplies">
+      <SOHdr>SUP</SOHdr>
+      <SiteID>SUP</SiteID>
+    </StoreOrder>
+    <StoreOrder Type="DropShip">
+      <SOHdr>DRO</SOHdr>
+      <SiteID>HPB</SiteID>
+    </StoreOrder>
+  </StoreOrder>
+</Config>
