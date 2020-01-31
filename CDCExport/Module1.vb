@@ -20,7 +20,8 @@ Module Module1
         Try
             Dim myapp As New CDCConnection
             Dim _exportType As Integer = ExportTypes.ITEM
-            Dim _defaultConfigLocation As String = "C:\Projects\CDCInterface\Config.xml"
+            'Dim _defaultConfigLocation As String = "C:\Projects\CDCInterface\Config.xml"
+            Dim _defaultConfigLocation As String = "C:\Blanco\Repos\CDCExport\CDCExport\Config.xml"
             '/CC:\Projects\CDCExport\config.xml
 
             myapp.ConfigFileLocation = _defaultConfigLocation

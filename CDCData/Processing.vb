@@ -1485,12 +1485,68 @@ Module Processing
                         myPOXML.Save(_EndFileName)
                         'delete from ILS upload tables....
                         db.CDC_DeleteOrderFromUploadTbl(rec.ERP_ORDER.Trim, _InterfaceRecID, rec.ORDER_TYPE.Trim, rec.SHIPMENT_ID)
-                        db.CDC_Interface_Shipment_Update(rec.SHIPPING_LOAD_NUM)
 
+                        'to be removed
+                        If _ProcShipXML.Trim <> "N" Then
+                            'check if HPB store and update HPB_db.....
+                            If rec.CUSTOMER.ToUpper.Trim = "HPB" And rec.COMPANY.ToUpper.Trim <> "SUP" Then
+                                'call HPB_db and pass in the xml for processing....
+                                _updHPBShipRecs = True
+                                _EndFileName = _EndFileName.Remove(0, _FileExportLocation.Length - _SOPFileExtension.Length)
+                                Dim _XMLStr As String = myPOXML.ToString()
+                                '_XMLStr = _XMLStr.Replace("utf-8", "utf-16")
+                                If hpb_db.WMS_ILS_ShipmentRecords(_XMLStr.ToString(), _EndFileName) <> 0 Then
+                                    Console.WriteLine("{0}, {1}, {2}", "HPB_db Shipment Update Failed!!! ", rec.SHIPMENT_ID.Trim, rec.CUSTOMER)
+                                    With nErrCls
+                                        .ErrNumber = 63
+                                        .ErrExceptionObj = New Exception
+                                        .ErrMessage = "HPB_db Shipment Update Failed for Shipment#: " & rec.SHIPMENT_ID.Trim
+                                        .HandleError(.ErrNumber, .ErrMessage, .ErrExceptionObj)
+                                    End With
+                                    If nErrCls.ErrorsExist = True Then
+                                        nErrCls.ErrXml.Save(_ErrorFileLocation)
+                                    End If
+                                End If
+                            End If
+                        End If
                     End If
 
                     Console.WriteLine("{0}, {1}, {2}", "ILS Shipment Export ", rec.SHIPMENT_ID.ToString.Trim, rec.CUSTOMER)
+
+                    'Try
+                    '    'need to delete rows from upload tables once done...... 
+                    '    'sp parameter (rec.ERP_ORDER.Trim ,_InterfaceRecID)
+                    '    'CDC_DeleteOrderFromUploadTbl
+                    '    db.CDC_DeleteOrderFromUploadTbl(rec.ERP_ORDER.Trim, _InterfaceRecID, rec.ORDER_TYPE.Trim)
+
+                    'Catch ex As Exception
+                    '    With nErrCls
+                    '        .ErrNumber = 62
+                    '        .ErrExceptionObj = ex
+                    '        .ErrMessage = "Error exporting ILS orders. Last known Order#: " & _lastKeyField.Trim & "  " & ex.Message.ToString()
+                    '        .HandleError(.ErrNumber, .ErrMessage, .ErrExceptionObj)
+                    '    End With
+                    'End Try
                 Next
+
+                'to be removed.....
+                'call stored proc to update DIPS wmsshipment tables..... pass in _sqlProcDate
+                If _ProcShipXML.Trim <> "N" Then
+                    If _updHPBShipRecs Then
+                        If hpb_db.WMS_ILS_UpdShipRecs(_sqlProcDate) <> 0 Then
+                            Console.WriteLine("HPB_db Shipment Record Update Failed!!! ")
+                            With nErrCls
+                                .ErrNumber = 63
+                                .ErrExceptionObj = New Exception
+                                .ErrMessage = "HPB_db Shipment Record Update Failed for dates >: " + _sqlProcDate.ToString
+                                .HandleError(.ErrNumber, .ErrMessage, .ErrExceptionObj)
+                            End With
+                            If nErrCls.ErrorsExist = True Then
+                                nErrCls.ErrXml.Save(_ErrorFileLocation)
+                            End If
+                        End If
+                    End If
+                End If
 
                 hpb_db.Connection.Close()
                 hpb_db.Connection.Dispose()

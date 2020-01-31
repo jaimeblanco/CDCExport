@@ -10,3 +10,14 @@ C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.pdb
 C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbprojResolveAssemblyReference.cache
 C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbprojAssemblyReference.cache
 C:\Projects\CDCExport\CDCData\obj\Debug\CDCData.vbproj.CoreCompileInputs.cache
+C:\Blanco\Repos\CDCExport\CDCData\bin\Debug\CDCData.dll.config
+C:\Blanco\Repos\CDCExport\CDCData\bin\Debug\CDCData.dll
+C:\Blanco\Repos\CDCExport\CDCData\bin\Debug\CDCData.pdb
+C:\Blanco\Repos\CDCExport\CDCData\bin\Debug\CDCData.xml
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.Resources.resources
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.vbproj.GenerateResource.cache
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.vbproj.CoreCompileInputs.cache
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.dll
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.xml
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.pdb
+C:\Blanco\Repos\CDCExport\CDCData\obj\Debug\CDCData.vbprojAssemblyReference.cache

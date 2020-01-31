@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HPB">
+  <DataContextMoniker Name="/HPBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2308b046-0956-47e3-80ea-c5bdc13fc0af" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/HPBDataContext/vw_BT_Inv_Hdr" />
+      <nestedChildShapes>
+        <elementListCompartment Id="faf9754f-b3d4-4a21-b63a-5f002edf1f6e" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.8370157877604165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bfefc2a-68ef-44fa-857a-ac0386b256f9" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/HPBDataContext/vw_BT_Inv_Dtl" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d426af0-14bc-453e-ac3f-d096b17973d6" absoluteBounds="2.6400000000000006, 0.96, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1eeb123b-0eee-48b2-9155-384098ca1a21" absoluteBounds="2.125, 2.125, 2, 2.5752791341145831">
+      <DataClassMoniker Name="/HPBDataContext/vw_WEB_Invoice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="81261351-0b7f-402a-8a6b-354cf04e42ff" absoluteBounds="2.14, 2.585, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

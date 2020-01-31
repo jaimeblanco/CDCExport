@@ -16,9 +16,9 @@
   <HPBConnectionString>Data Source=SILVERBELL;Initial Catalog=HPB_Logistics;Application Name=CDCExport;Integrated Security=True</HPBConnectionString>
   <ILSConnectionString>Data Source=WMSSQLCLUSTER;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>
   <!--Dev Conn Strings-->
-  <!--<ConnectionString>Data Source=FERRET;Initial Catalog=HPB_db;Application Name=CDCExport;Integrated Security=True</ConnectionString>-->
-  <!--<HPBConnectionString>Data Source=porcupine;Initial Catalog=HPB_Logistics;Application Name=CDCExport;Integrated Security=True</HPBConnectionString>-->
-  <!--<ILSConnectionString>Data Source=wmssqlcluster;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>-->
+	<!--<ConnectionString>Data Source=FERRET;Initial Catalog=HPB_db;Application Name=CDCExport;Integrated Security=True</ConnectionString>-->
+  <!--<HPBConnectionString>Data Source=possum;Initial Catalog=HPB_Logistics;Application Name=CDCExport;Integrated Security=True</HPBConnectionString>-->
+  <!--<ILSConnectionString>Data Source=WMSTESTSQL;Initial Catalog=ILS;User ID=manh;Password=HPB1lsn3t</ILSConnectionString>-->
   <ProcessingDocType>Order</ProcessingDocType>
   <CompletedBatchID>FINISHED</CompletedBatchID>
   <AvailableProcessHoldID>ILS</AvailableProcessHoldID>
@@ -64,7 +64,7 @@
     <ILSExportFileExt>.shupl.xml</ILSExportFileExt>
     <errEmailAddress></errEmailAddress>
   </ExportType>
-  <ExportType Type="POPx">
+  <ExportType Type="POP">
     <xmlOutputFile>C:\Projects\XMLTest\CDCOutput\.rcxml.xml</xmlOutputFile>
     <errOutputFile>C:\Projects\XMLTest\CDCErr\errOutput_rc.xml</errOutputFile>
     <GPExportFileExt>.poupl.xml</GPExportFileExt>

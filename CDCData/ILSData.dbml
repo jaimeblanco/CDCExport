@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ILS" Class="ILSDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=wmssqlcluster12;Initial Catalog=ILS;User ID=manh;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="CDCData.My.MySettings" SettingsPropertyName="ILSConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="ILS" Class="ILSDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=wmssqlcluster;Initial Catalog=ILS;Persist Security Info=True;User ID=manh" SettingsObjectName="CDCData.My.MySettings" SettingsPropertyName="ILSConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.vwItemBalance2Export" Member="vwItemBalance2Exports">
     <Type Name="vwItemBalance2Export">
       <Column Name="ITEM" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
@@ -14,6 +15,63 @@
       <Column Name="USER_STAMP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="DATE_TIME_STAMP" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="PROCESS_STAMP" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwHPBOrders2Export" Member="vwHPBOrders2Exports">
+    <Type Name="vwHPBOrders2Export">
+      <Column Name="COMPANY" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CARRIER" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ACTUAL_SHIP_DATE_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CUSTOMER" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BOLNUM" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PRONUM" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIPMENT_ID" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIPPING_LOAD_NUM" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="TOTAL_CONTAINERS" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="BoxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOTAL_WEIGHT" Type="System.Decimal" DbType="Decimal(28,5) NOT NULL" CanBeNull="false" />
+      <Column Name="WAREHOUSE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CUSTOMER_PO" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ERP_ORDER" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="BASE_FREIGHT_CHARGE" Type="System.Decimal" DbType="Decimal(19,5) NOT NULL" CanBeNull="false" />
+      <Column Name="TOTAL_FREIGHT_CHARGE" Type="System.Decimal" DbType="Decimal(28,5) NOT NULL" CanBeNull="false" />
+      <Column Name="INTERFACE_RECORD_ID" Type="System.Decimal" DbType="Decimal(9,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ORDER_TYPE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIP_TO" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIP_TO_ADDRESS1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SHIP_TO_ADDRESS2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIP_TO_ATTENTION_TO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SHIP_TO_CITY" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="SHIP_TO_COUNTRY" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIP_TO_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SHIP_TO_POSTAL_CODE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIP_TO_STATE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="OrderType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Member="GLAcct" Type="System.String" CanBeNull="false" />
+      <Column Member="InvAcct" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwHPBOrderDtls2Export" Member="vwHPBOrderDtls2Exports">
+    <Type Name="vwHPBOrderDtls2Export">
+      <Column Name="ERP_ORDER" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="ERP_ORDER_LINE_NUM" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="ITEM" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="ITEM_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ITEM_NET_PRICE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="ITEM_LIST_PRICE" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
+      <Column Name="ORDER_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ORDER_TYPE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIPMENT_ID" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="SHIPPED_QTY" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
+      <Column Name="QUANTITY_UM" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="WAREHOUSE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="GPItemNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="INTERFACE_LINK_ID" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+      <Column Name="TrackingNum" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
+      <Column Name="POLink" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Member="GLAcct" Type="System.String" CanBeNull="false" />
+      <Column Member="InvAcct" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.vwWEBItemSummary" Member="vwWEBItemSummaries">
@@ -82,63 +140,6 @@
       <Column Name="AcademicSubjectDesc" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.vwHPBOrders2Export" Member="vwHPBOrders2Exports">
-    <Type Name="vwHPBOrders2Export">
-      <Column Name="COMPANY" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="CARRIER" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="ACTUAL_SHIP_DATE_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CUSTOMER" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="CUSTOMER_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BOLNUM" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="PRONUM" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIPMENT_ID" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIPPING_LOAD_NUM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TOTAL_CONTAINERS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BoxCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TOTAL_WEIGHT" Type="System.Decimal" DbType="Decimal(28,5) NOT NULL" CanBeNull="false" />
-      <Column Name="WAREHOUSE" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="CUSTOMER_PO" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="ERP_ORDER" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="BASE_FREIGHT_CHARGE" Type="System.Decimal" DbType="Decimal(19,5) NOT NULL" CanBeNull="false" />
-      <Column Name="TOTAL_FREIGHT_CHARGE" Type="System.Decimal" DbType="Decimal(28,5) NOT NULL" CanBeNull="false" />
-      <Column Name="INTERFACE_RECORD_ID" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ORDER_TYPE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="SHIP_TO" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_ADDRESS1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_ADDRESS2" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_ATTENTION_TO" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_CITY" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_COUNTRY" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_POSTAL_CODE" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="SHIP_TO_STATE" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="OrderType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="GLAcct" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="InvAcct" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.vwHPBOrderDtls2Export" Member="vwHPBOrderDtls2Exports">
-    <Type Name="vwHPBOrderDtls2Export">
-      <Column Name="ERP_ORDER" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="ERP_ORDER_LINE_NUM" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
-      <Column Name="ITEM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ITEM_DESC" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
-      <Column Name="ITEM_NET_PRICE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
-      <Column Name="ITEM_LIST_PRICE" Type="System.Decimal" DbType="Decimal(19,5)" CanBeNull="true" />
-      <Column Name="ORDER_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="ORDER_TYPE" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="SHIPMENT_ID" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="SHIPPED_QTY" Type="System.Decimal" DbType="Decimal(38,5)" CanBeNull="true" />
-      <Column Name="QUANTITY_UM" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="WAREHOUSE" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="GPItemNo" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="INTERFACE_LINK_ID" Type="System.Decimal" DbType="Decimal(9,0) NOT NULL" CanBeNull="false" />
-      <Column Name="TrackingNum" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
-      <Column Name="POLink" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="GLAcct" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="InvAcct" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Function Name="dbo.CDC_DeleteItemFromUploadTbl" Method="CDC_DeleteItemFromUploadTbl">
     <Parameter Name="ItemNum" Parameter="itemNum" Type="System.String" DbType="VarChar(30)" />
     <Return Type="System.Int32" />
@@ -154,10 +155,6 @@
     <Parameter Name="receiptLineNum" Type="System.Int32" DbType="Int" />
     <Parameter Name="receiptID" Type="System.String" DbType="VarChar(12)" />
     <Parameter Name="procType" Type="System.String" DbType="VarChar(4)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.CDC_Interface_Shipment_Update" Method="CDC_Interface_Shipment_Update">
-    <Parameter Name="shipNo" Type="System.Decimal" DbType="Decimal(9,0)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

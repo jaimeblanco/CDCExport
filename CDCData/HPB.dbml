@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="HPB_Logistics" Class="HPBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=silverbell;Initial Catalog=HPB_Logistics;Integrated Security=True" SettingsObjectName="CDCData.My.MySettings" SettingsPropertyName="HPB_LogisticsConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vw_BT_Inv_Hdr" Member="vw_BT_Inv_Hdrs">
+    <Type Name="vw_BT_Inv_Hdr">
+      <Column Name="InvoiceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PONumber" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="ReferenceNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ShipToLoc" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="ShipToSAN" Type="System.String" DbType="NVarChar(21)" CanBeNull="true" />
+      <Column Name="BillToLoc" Type="System.String" DbType="VarChar(14) NOT NULL" CanBeNull="false" />
+      <Column Name="BillToSAN" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ShipFromLoc" Type="System.String" DbType="NVarChar(7)" CanBeNull="true" />
+      <Column Name="ShipFromSAN" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="TotalLines" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalPayable" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CurrencyCode" Type="System.String" DbType="NChar(3)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_BT_Inv_Dtl" Member="vw_BT_Inv_Dtls">
+    <Type Name="vw_BT_Inv_Dtl">
+      <Column Name="ItemInvoiceID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[LineNo]" Member="LineNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ItemIDCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ItemIdentifier" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="ItemDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="InvoiceQty" Type="System.String" DbType="NVarChar(9)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DiscountPrice" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DiscountCode" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountPct" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_WEB_Invoices" Member="vw_WEB_Invoices">
+    <Type Name="vw_WEB_Invoice">
+      <Column Name="InvoiceNumber" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="IssueDateTime" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ASNNumber" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
+      <Column Name="ShipTo" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TotalLines" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceQuantity" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="TotalPayable" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PurchaseAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ShippingAmount" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.HPB_CDC_DropShipments" Method="HPB_CDC_DropShipments">
+    <Parameter Name="xml" Type="System.String" DbType="NText" />
+    <Parameter Name="File" Parameter="file" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EDI_InvoiceHdrUpdStatus" Method="EDI_InvoiceHdrUpdStatus">
+    <Parameter Name="InvoiceID" Parameter="invoiceID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="VendorID" Parameter="vendorID" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.WEB_InvoiceHdrUpdStatus" Method="WEB_InvoiceHdrUpdStatus">
+    <Parameter Name="InvoiceNo" Parameter="invoiceNo" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="OrderNo" Parameter="orderNo" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="WEB_InvoiceHdrUpdStatusResult">
+      <Column Name="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

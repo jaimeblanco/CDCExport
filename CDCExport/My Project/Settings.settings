@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ConfigLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Projects\CDCExport\config.xml</Value>
+      <Value Profile="(Default)">C:\Blanco\Repos\CDCExport\CDCExport\config.xml</Value>
     </Setting>
   </Settings>
 </SettingsFile>
